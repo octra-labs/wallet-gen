@@ -1,0 +1,4 @@
+git clone https://github.com/octra-labs/wallet-gen
+cd wallet-gen
+bun install
+bun run build
