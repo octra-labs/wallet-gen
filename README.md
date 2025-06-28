@@ -36,3 +36,5 @@ A secure wallet generator for Octra blockchain.
    - Test signature functionality
    - Derive addresses for different network types
    - Auto-save wallet file to disk
+
+3. **Request testnet tokens:** https://faucet.octra.network
