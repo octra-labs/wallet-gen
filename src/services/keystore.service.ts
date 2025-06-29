@@ -33,6 +33,15 @@ export class KeyStoreService {
     await this.ensureKeystoreDir();
     const filePath = this.getKeyFilePath(keyName);
 
+    try {
+      await fs.access(filePath);
+      throw new Error(`Key '${keyName}' already exists in keystore.`);
+    } catch (err) {
+      if ((err as NodeJS.ErrnoException).code !== "ENOENT") {
+        throw err;
+      }
+    }
+
     const keyToStore: StoredKey = {
       name: keyName,
       address: walletData.address,

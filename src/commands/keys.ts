@@ -33,17 +33,17 @@ async function handleAddKey(name: string, options: { index: string }) {
   const index = parseInt(options.index, 10);
 
   try {
-    console.log(`\nCreating new key: ${name}`);
     const wallet = cliWalletService.generateNewKey(index);
     await keyStoreService.saveKey(name, wallet);
 
-    console.log("\nKey created and saved successfully.");
-    console.log("-".repeat(80));
-    console.log(`  Name     : ${name}`);
-    console.log(`  Address  : ${wallet.address}`);
-    console.log("\nThe mnemonic is stored in your keystore file.");
-    console.log("Make sure to keep it safe and backed up securely.");
-    console.log("-".repeat(80));
+    console.log(`\nNAME: ${name}`);
+    console.log(`ADDRESS: ${wallet.address}`);
+    console.log(`PUBKEY: ${wallet.public_key_b64}`);
+    console.log(`MNEMONIC: "${wallet.mnemonic.join(" ")}"\n`);
+    console.log("**Important** write this mnemonic phrase in a safe place.");
+    console.log(
+      "It is the only way to recover your account if you ever forget your password.\n"
+    );
   } catch (error) {
     logError("Failed to create and save key", error);
   }

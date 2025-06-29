@@ -1,6 +1,7 @@
 #!/usr/bin/env bun
 import { Command } from "commander";
 import { registerKeyCommands } from "./commands/keys";
+import { registerQueryCommands } from "./commands/query";
 
 const program = new Command();
 
@@ -11,6 +12,7 @@ program
 
 // Register commands
 registerKeyCommands(program);
+registerQueryCommands(program);
 
 // Show help by default if no args
 if (process.argv.length <= 2) {
