@@ -24,8 +24,11 @@ async function loadAssets() {
     foundersGroteskFont = await Bun.file(foundersGroteskFontPath).arrayBuffer();
     nationalFont = await Bun.file(nationalFontPath).arrayBuffer();
   } catch (error) {
-    console.warn("Could not load embedded assets:", error.message);
-    // Assets will be served from filesystem instead
+    if (error instanceof Error) {
+      console.warn("Could not load embedded assets:", error.message);
+    } else {
+      console.warn("Could not load embedded assets:", error);
+    }
   }
 }
 
