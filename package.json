@@ -7,15 +7,21 @@
   "scripts": {
     "start": "bun wallet_generator.ts",
     "dev": "bun --watch wallet_generator.ts",
-    "build": "bun build --compile --outfile=wallet-generator ./wallet_generator.ts"
+    "start:cli": "bun src/main-cli.ts",
+    "build": "bun build --compile --outfile=wallet-generator ./src/main.ts",
+    "build:cli": "bun build --compile --outfile=wallet-cli ./src/main-cli.ts"
   },
   "dependencies": {
-    "tweetnacl": "^1.0.3",
-    "bip39": "^3.1.0"
+    "bip39": "^3.1.0",
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0",
+    "tweetnacl": "^1.0.3"
   },
   "devDependencies": {
     "@types/bun": "^1.2.16",
     "@types/node": "^20.10.0",
+    "bun-types": "^1.2.17",
+    "nacl": "^0.1.3",
     "typescript": "^5.3.3"
   },
   "keywords": ["wallet", "crypto", "ed25519", "bip39", "typescript"],

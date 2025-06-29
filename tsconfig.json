@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    /* Base Options */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "esnext",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitAny": true,
+
+    /* Bundler & Module Resolution */
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "noEmit": true, 
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    
+    /* Bun-specific types */
+    "types": ["bun-types"] 
+  },
+  "include": ["src/**/*.ts", "types.d.ts"] 
+}
