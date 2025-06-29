@@ -5,3 +5,4 @@ node_modules
 .cursor
 wallet-generator
 wallet-generator.exe
+bun.lock

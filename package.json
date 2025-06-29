@@ -8,7 +8,7 @@
     "start": "bun wallet_generator.ts",
     "dev": "bun --watch wallet_generator.ts",
     "start:cli": "bun src/main-cli.ts",
-    "build": "bun build --compile --outfile=wallet-generator ./src/main.ts",
+    "build:web": "bun build --compile --outfile=wallet-generator ./src/main.ts",
     "build:cli": "bun build --compile --outfile=wallet-cli ./src/main-cli.ts"
   },
   "dependencies": {
