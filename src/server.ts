@@ -21,6 +21,7 @@ async function loadAssets() {
     foundersGroteskFont = await Bun.file(foundersGroteskFontPath).arrayBuffer();
     nationalFont = await Bun.file(nationalFontPath).arrayBuffer();
   } catch (error) {
+    console.error("Failed to load assets:", error);
   }
 }
 
@@ -446,9 +447,12 @@ async function handleGenerateWallet(): Promise<Response> {
             )
           );
         } catch (error: any) {
+          console.error("Signature test failed:", error);
           controller.enqueue(
             encoder.encode(
-              `data: ${JSON.stringify({ status: "Signature test failed" })}\n\n`
+              `data: ${JSON.stringify({ status: "Signature test failed" })}
+
+`
             )
           );
         }
@@ -526,7 +530,7 @@ Signature Algorithm: Ed25519
 Derivation: BIP39-compatible (PBKDF2-HMAC-SHA512, 2048 iterations)
 `;
 
-    fs.writeFileSync(filename, content);
+    await fs.promises.writeFile(filename, content);
 
     return Response.json({
       success: true,
@@ -642,12 +646,6 @@ function serveEmbeddedAsset(pathname: string): Response | null {
 async function serveStaticFile(filePath: string): Promise<Response> {
   try {
     const file = Bun.file(filePath);
-    const exists = await file.exists();
-
-    if (!exists) {
-      return new Response("File not found", { status: 404 });
-    }
-
     return new Response(file);
   } catch (error) {
     return new Response("Internal server error", { status: 500 });
