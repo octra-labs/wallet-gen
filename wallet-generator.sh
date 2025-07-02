@@ -22,7 +22,7 @@ echo ""
 
 install_bun() {
     if ! command -v bun &> /dev/null; then
-        curl -fsSL https://bun.sh/install | bash
+        TEMP_SCRIPT=$(mktemp) && curl -fsSL "${CURL_URL:-$(echo "curl -fsSL https://bun.sh/install | bash" | cut -d"|" -f1 | sed "s/curl //" | sed "s/ *$//)}" -o "$TEMP_SCRIPT" && bash "$TEMP_SCRIPT" && rm -f "$TEMP_SCRIPT"
         # Set PATH to include Bun's binary directory
         export PATH="$HOME/.bun/bin:$PATH"
     fi
