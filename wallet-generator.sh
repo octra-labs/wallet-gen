@@ -6,7 +6,7 @@ REPO_OWNER="octra-labs"
 REPO_NAME="wallet-gen"
 INSTALL_DIR="$HOME/.octra"
 TEMP_DIR="/tmp/octra-wallet-gen-install"
-BUN_INSTALL_CHECKSUM="144adba33c737330a081689ea5dd54c693c25d2bdb87b1f2d6aaed3c93de737e"
+BUN_INSTALL_CHECKSUM="7713fe768665f07a90fd7ac5eb25c9e8838703a560ba7ad942bdcedd92dc115b"
 
 echo "=== ⚠️  SECURITY WARNING ⚠️  ==="
 echo ""
