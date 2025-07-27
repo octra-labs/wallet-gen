@@ -88,7 +88,7 @@ function Get-Env {
   $EnvRegisterKey.GetValue($Key, $null, [Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames)
 }
 
-# The installation of bun is it's own function so that in the unlikely case the $IsBaseline check fails, we can do a recursive call.
+# The installation of bun is its own function so that in the unlikely case the $IsBaseline check fails, we can do a recursive call.
 # There are also lots of sanity checks out of fear of anti-virus software or other weird Windows things happening.
 function Install-Bun {
   param(
