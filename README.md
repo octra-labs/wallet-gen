@@ -20,5 +20,3 @@ this command will:
 - install to `~/.octra/wallet-generator` for future use
 
 ## request testnet tokens
-
-https://faucet.octra.network
