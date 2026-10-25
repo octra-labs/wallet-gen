@@ -1,5 +1,7 @@
 # octra wallet generator
 
+> **Deprecated.** This repository is archived and no longer maintained. Create or import wallets in [webcli](https://github.com/octra-labs/webcli) instead.
+
 ## quick start
 
 **download and start wallet generator web UI with a single command:**
